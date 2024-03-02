@@ -4,39 +4,27 @@ void Swap(int& a, int& b);
 void Func(const int& a);
 
 void ReferencePointers();
+void PointersArraysExample();
 
 void ArrayPrint(int* array, int size);
 
 int main()
 {
-    int size;
+    int n{ 123 };
+    float x{ 123.0 };
 
-    std::cout << "Input size of array: ";
-    std::cin >> size;
+    void* vptr;
 
-    int* array = new int[size];
-    std::cout << array << "\n";
+    int* iptr{ &n };
+    vptr = &n;
 
+    float* fptr = (float*)vptr;
+    std::cout << *fptr << "\n";
+    
+    vptr = &x;
+    iptr = (int*)vptr;
+    std::cout << *iptr << "\n";
 
-    for (int i{}; i < size; i++)
-        *(array + i) = i + 1;
-
-    //*(array + 1) = 100;
-
-
-    for (int i{}; i < size; i++)
-        std::cout << array[i] << " ";
-    std::cout << "\n";
-
-    delete[] array;
-    array = nullptr;
-
-    if(array != nullptr)
-        std::cout << array << "\n";
-    else
-        std::cout << "not null\n";
-
-    //array = nullptr;
 }
 
 void Swap(int& a, int& b)
@@ -83,4 +71,36 @@ void ReferencePointers()
     *iptr = 600;
 
     std::cout << number1 << " " << number2 << "\n";
+}
+
+void PointersArraysExample()
+{
+    int size;
+
+    std::cout << "Input size of array: ";
+    std::cin >> size;
+
+    int* array = new int[size];
+    std::cout << array << "\n";
+
+
+    for (int i{}; i < size; i++)
+        *(array + i) = i + 1;
+
+    //*(array + 1) = 100;
+
+
+    for (int i{}; i < size; i++)
+        std::cout << array[i] << " ";
+    std::cout << "\n";
+
+    delete[] array;
+    array = nullptr;
+
+    if (array != nullptr)
+        std::cout << array << "\n";
+    else
+        std::cout << "not null\n";
+
+    //array = nullptr;
 }
