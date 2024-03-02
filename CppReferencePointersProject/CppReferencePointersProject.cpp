@@ -15,6 +15,8 @@ int main()
     std::cin >> size;
 
     int* array = new int[size];
+    std::cout << array << "\n";
+
 
     for (int i{}; i < size; i++)
         *(array + i) = i + 1;
@@ -24,8 +26,17 @@ int main()
 
     for (int i{}; i < size; i++)
         std::cout << array[i] << " ";
+    std::cout << "\n";
 
     delete[] array;
+    array = nullptr;
+
+    if(array != nullptr)
+        std::cout << array << "\n";
+    else
+        std::cout << "not null\n";
+
+    //array = nullptr;
 }
 
 void Swap(int& a, int& b)
